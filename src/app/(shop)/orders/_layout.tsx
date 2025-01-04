@@ -12,5 +12,3 @@ export default function OrdersLayout() {
     </Stack>
   );
 }
-
-// 25'48''
