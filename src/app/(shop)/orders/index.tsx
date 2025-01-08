@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import React from "react";
 import { ORDERS } from "../../../../assets/orders";
-import { Link } from "expo-router";
-import { OrderStatus } from "../../../../assets/types/order";
+import { Link, Stack } from "expo-router";
+import { Order, OrderStatus } from "../../../../assets/types/order";
 
 const statusDisplayText: Record<OrderStatus, string> = {
   Pending: "Pending",
@@ -18,7 +18,7 @@ const statusDisplayText: Record<OrderStatus, string> = {
   InTransit: "In Transit",
 };
 
-const renderItem: ListRenderItem<any> = ({ item }) => (
+const renderItem: ListRenderItem<Order> = ({ item }) => (
   <Link href={`/orders/${item.slug}`} asChild>
     <Pressable style={styles.orderContainer}>
       <View style={styles.orderContent}>
@@ -42,6 +42,7 @@ const renderItem: ListRenderItem<any> = ({ item }) => (
 const Orders = () => {
   return (
     <View style={styles.container}>
+      <Stack.Screen options={{ title: "Orders" }} />
       <FlatList
         data={ORDERS}
         keyExtractor={(item) => item.id.toString()}
