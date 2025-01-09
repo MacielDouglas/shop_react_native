@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import * as zod from "zod";
 import { zodResolver } from "./../../node_modules/@hookform/resolvers/zod/src/zod";
+import { Stack } from "expo-router";
 
 const authSchema = zod.object({
   email: zod.string().email({ message: "Email inválido." }),
@@ -42,6 +43,7 @@ export default function Auth() {
       style={styles.backgroundImage}
     >
       <View style={styles.overlay} />
+
       <View style={styles.container}>
         <Text style={styles.title}>Bem vindo</Text>
         <Text style={styles.subtitle}>
